@@ -1,28 +1,29 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
+import Section from './components/Section';
 import './App.css';
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+    constructor(props){
+        super(props);
+        let ArrestedDevelopment = [{path:'HeyWhatchaTryingToSayToMe', name: 'Whatcha Trying to Say to Me?', pic: 'whatcha.png'}, {path: 'mrf', name: 'Mr. F', pic: 'mrf.jpg'}];
+        let TheOffice = [{path: 'No', name: 'NO! PLEASE NO!', pic: 'michaelScott.png'}];
+        this.state = {
+            ArrestedDevelopment,
+            TheOffice,
+        }
+    }
+    play = (index) => {
+        document.querySelector("#" + index).play();
+    };
+
+    render() {
+        return (
+            <div className="App">
+                <Section title={'Arrested Development'} files={this.state.ArrestedDevelopment} play={this.play}/>
+                <Section title={'The Office'} files={this.state.TheOffice} play={this.play}/>
+            </div>
+        );
+    }
 }
 
 export default App;
