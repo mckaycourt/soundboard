@@ -1,13 +1,13 @@
 import React from 'react';
 import Audiofiles from './Audiofiles';
 
-const Section = ({title, files, play}) => {
+const Section = ({title, image, files, play, show}) => {
     return (
-        <div className='Section'>
+        <div className='Section' onClick={() => show(title)}>
             <div>
                 {title}
             </div>
-            <Audiofiles files={files} play={play}/>
+            <img src={`./Images/${image}`} className='button'/>
         </div>
     )
 };
